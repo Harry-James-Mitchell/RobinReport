@@ -1,30 +1,13 @@
-<apex:page controller="FindSighting" lightningStyleSheets="true" docType="html-5.0">
+<apex:page standardController="Sighting__c" recordSetVar="sighting" lightningStyleSheets="true" docType="html-5.0">
     <apex:form >
-        <apex:pageBlock title="Please enter sighting name: " >
-            <apex:pageBlockSection >
-                <!-- Take user input and store it in sightingName -->
-                <apex:input type="text" value="{!sightingName}" label="Sighting Name:" />
-            </apex:pageBlockSection>
-            <apex:pageBlockButtons location="bottom">
-                <!-- Once button is clicked call function findMySighting-->
-                <apex:commandButton action="{!findMySighting}" value="Find Sighting " />
-            </apex:pageBlockButtons>            
-        </apex:pageBlock>
-        <apex:pageBlock title="Sighting:" >
-            <apex:pageBlockSection >
-                <!-- Return values of record fields sighting from SOQL query by speciesName--> 
-                <apex:outputField value="{!sighting.Name}" />
-            </apex:pageBlockSection>     
-            <apex:pageBlockSection >
-                <apex:outputField value="{!sighting.SightingDate__c}" />
-            </apex:pageBlockSection>
-            <apex:pageBlockSection >
-                <apex:outputField value="{!sighting.SightingTime__c}"  />
-            </apex:pageBlockSection>
-            <apex:pageBlockSection >
-                <apex:outputField value="{!sighting.Specie__c}"  />
-            </apex:pageBlockSection>
-            <apex:include pageName="BirdLocation"/>
+        <apex:pageBlock title="List of Sightings: " >
+            <apex:pageBlockTable value="{!sighting}" var="sight" >
+            	<apex:column value="{!sight.Name}"/>
+                <apex:column value="{!sight.SightingDate__c}"/>
+                <apex:column value="{!sight.SightingTime__c}"/>
+                <apex:column value="{!sight.Specie__c}"/>
+            </apex:pageBlockTable>   
+            <!--<apex:include pageName="BirdLocation"/>-->
         </apex:pageBlock>
 	</apex:form>
 </apex:page>
