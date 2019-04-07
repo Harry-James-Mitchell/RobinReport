@@ -1,0 +1,19 @@
+<apex:page controller="FindSpecies" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Please enter sepecies name">
+            <apex:pageBlockSection >
+                <apex:input type="text" value="{!speciesName}" label="Species Name: "/>
+                <apex:commandButton action="{!findSpecies}" value="Find Species"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Species" id="resultsSection" rendered="{!speciesFound}">
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!Species}" var="speciesList">
+                    <apex:column value="{!speciesList.Name}"/>
+                    <apex:column value="{!speciesList.SpecieDescription__c}"/>
+                    <!-- Repeat for fields -->
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
