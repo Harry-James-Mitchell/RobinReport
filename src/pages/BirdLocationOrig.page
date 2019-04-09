@@ -1,0 +1,7 @@
+<apex:page showHeader="false" sidebar="false" standardController="Sighting__c" docType="html-5.0">   
+     <ggo:GeocodeComponentLocationSF1 recId="{!Sighting__c.id}" recType="Sighting__c"
+        displayfields="" 
+        maxResults="500" nearbyDistance="10"
+                          geoLoc="GeoAddress__c"
+    />
+</apex:page>

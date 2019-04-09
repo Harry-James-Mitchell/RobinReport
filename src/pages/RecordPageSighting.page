@@ -1,0 +1,13 @@
+<apex:page standardController="Sighting__c" recordSetVar="sighting" lightningStyleSheets="true" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="List of Sightings: " >
+            <apex:pageBlockTable value="{!sighting}" var="sight" >
+            	<apex:column value="{!sight.Name}"/>
+                <apex:column value="{!sight.SightingDate__c}"/>
+                <apex:column value="{!sight.SightingTime__c}"/>
+                <apex:column value="{!sight.Specie__c}"/>
+            </apex:pageBlockTable>   
+            <!--<apex:include pageName="BirdLocation"/>-->
+        </apex:pageBlock>
+	</apex:form>
+</apex:page>
