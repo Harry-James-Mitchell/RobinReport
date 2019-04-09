@@ -1,0 +1,18 @@
+<apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Enter a geolocation! Step3">
+            <apex:pageBlockButtons location="bottom"> 
+                <apex:commandButton action="{!pageThreePrevious}" value="Previous" />
+                <apex:commandButton action="{!pageThreeNext}" value="Next" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputText value="longitude" /> 
+                <!--<input type="any" value="{!longitude}"/>-->
+                <apex:input type="number" html-step="any" value="{!longitude}"/>
+                <apex:outputText value="latitude" /> 
+                <!--<input type="any" value="{!latitude}" />-->
+                <apex:input type="number" html-step="any" value="{!latitude}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

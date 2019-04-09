@@ -1,0 +1,16 @@
+<apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Enter a date and time! Step2">
+            <apex:pageBlockButtons location="bottom" > 
+                <apex:commandButton action="{!pageTwoPrevious}" value="Previous" />
+                <apex:commandButton action="{!pageTwoNext}" value="Next" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputText value="Date" /> 
+                <apex:input type="date" value="{!sightingDate}" />
+                <apex:outputText value="Time" /> 
+                <apex:input type="time" value="{!sightingTime}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page standardController="Species__c" recordSetVar="species" lightningStyleSheets="true" docType="html-5.0">
+    <apex:form >
+       <apex:pageBlock title="List of Species: " > 
+            <apex:pageBlockTable value="{!species}" var="spec" style="width:100%" >
+            	<apex:column value="{!spec.Name}" style="width:10%"/>
+                <apex:column value="{!spec.ScientificName__c}" style="width:10%"/>
+                <apex:column value="{!spec.SpeciesDescription__c}" style="width:45%"/>
+                <apex:column value="{!spec.Picture__c}" style="width:35%"/>
+             </apex:pageBlockTable>                
+         </apex:pageBlock>
+    </apex:form>    
+</apex:page>
