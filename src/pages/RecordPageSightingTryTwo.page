@@ -22,7 +22,7 @@
                 <apex:outputField value="{!sighting.SightingTime__c}"  />
             </apex:pageBlockSection>
             <apex:pageBlockSection >
-                <apex:outputField value="{!sighting.Specie__c}"  />
+                <apex:outputField value="{!sighting.Species__c}"  />
             </apex:pageBlockSection>
             <apex:include pageName="BirdLocation"/>
         </apex:pageBlock>

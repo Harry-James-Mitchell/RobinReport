@@ -1,26 +1,30 @@
-<apex:page controller="FindSpecies" lightningStyleSheets="true" docType="html-5.0">
+<apex:page controller="FindSighting" lightningStyleSheets="true" docType="html-5.0">
     <apex:form >
-        <apex:pageBlock title="Please enter species name: " >
+        <apex:pageBlock title="Please enter sighting name: " >
             <apex:pageBlockSection >
-                <!-- Take user input and store it in speciesName -->
-                <apex:input type="text" value="{!speciesName}" label="Species Name:" />
+                <!-- Take user input and store it in sightingName -->
+                <apex:input type="text" value="{!sightingName}" label="Sighting Name:" />
             </apex:pageBlockSection>
             <apex:pageBlockButtons location="bottom">
-                <!-- Once button is clicked call function findMySpecies-->
-                <apex:commandButton action="{!findMySpecies}" value="Find Species " />
+                <!-- Once button is clicked call function findMySighting-->
+                <apex:commandButton action="{!findMySighting}" value="Find Sighting " />
             </apex:pageBlockButtons>            
         </apex:pageBlock>
-        <apex:pageBlock title="Species:" >
+        <apex:pageBlock title="Sighting:" >
             <apex:pageBlockSection >
-                <!-- Return values of record fields species from SOQL query by speciesName--> 
-                <apex:outputField value="{!species.Name}" />
+                <!-- Return values of record fields sighting from SOQL query by speciesName--> 
+                <apex:outputField value="{!sighting.Name}" />
             </apex:pageBlockSection>     
             <apex:pageBlockSection >
-                <apex:outputField value="{!species.SpeciesDescription__c}" />
+                <apex:outputField value="{!sighting.SightingDate__c}" />
             </apex:pageBlockSection>
             <apex:pageBlockSection >
-                <apex:outputField value="{!species.Picture__c}"  />
+                <apex:outputField value="{!sighting.SightingTime__c}"  />
             </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!sighting.Species__c}"  />
+            </apex:pageBlockSection>
+            <apex:include pageName="BirdLocation"/>
         </apex:pageBlock>
-    </apex:form>    
+	</apex:form>
 </apex:page>
