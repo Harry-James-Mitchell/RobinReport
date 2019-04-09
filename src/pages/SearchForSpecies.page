@@ -1,0 +1,31 @@
+<apex:page controller="FindSpecies" docType="html-5.0" lightningStylesheets="true">
+    <apex:pageMessages />
+    <apex:slds />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Please enter sepecies name" collapsible="false">
+                <apex:input type="text" value="{!speciesName}" label="Species Name: "/>
+                <apex:commandButton action="{!findSpecies}" value="Find Species"/>
+            </apex:pageBlockSection>
+           <!-- <apex:pageBlockSection title="Species" id="resultsSection" rendered="{!speciesFound}" > -->
+                <apex:pageBlockTable value="{!speciesSubList}" var="speciesList" style="width:100%">
+                    <apex:column value="{!speciesList.Name}" width="10%" />
+                    <apex:column value="{!speciesList.ScientificName__c}" width="10%"/>
+                    <apex:column value="{!speciesList.SpeciesDescription__c}" width="40%"/>
+                    <apex:column value="{!speciesList.Picture__c}" width="40%"/>
+                     <!--    <apex:image id="theImage" value="{!speciesList.Picture__c}" style="width:250px; height:250px;"/>
+                       <a href="#" id="{!speciesList.Id}"
+                          onmouseover="LookupHoverDetail.getHover('{!speciesList.Id}', '/{!speciesList.Id}/m?retURL=/{!speciesList.Id}&isAjaxRequest=1').show();"          
+                          onmouseout="LookupHoverDetail.getHover('{!speciesList.Id}').hide();">
+                          <apex:outputtext value="Hover over me"/>
+                        </a> 
+                    </apex:column>-->
+                </apex:pageBlockTable>
+       <!--     </apex:pageBlockSection> -->
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}"/>
+                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
