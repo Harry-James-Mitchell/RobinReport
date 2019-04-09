@@ -22,7 +22,7 @@
                     </apex:column>-->
                 </apex:pageBlockTable>
        <!--     </apex:pageBlockSection> -->
-            <apex:pageBlockButtons >
+            <apex:pageBlockButtons Location="bottom">
                 <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}"/>
                 <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}"/>
             </apex:pageBlockButtons>
