@@ -18,7 +18,6 @@ public with sharing class FindSpecies {
     }
     
     public void findSpecies() {
-        //This can be SQL injected. Fix it soontm
         String searchCriteria = '%' + speciesName + '%';
         //Make sure users have permission to view the fields
         if (Schema.sObjectType.Species__c.fields.Id.isAccessible() && Schema.sObjectType.Species__c.fields.Name.isAccessible()) {
@@ -31,22 +30,19 @@ public with sharing class FindSpecies {
         if(species.size() == 0){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.info, 'No results were found'));
         } else {
+            notFirstPage = false;
             speciesFound = true;
+            notLastPage = species.size()>OFFSETAMOUNT;
             //Fill the list of elements to be displayed on the VF page
-            for(Integer i=0; i<OFFSETAMOUNT && i<species.size(); i++){
+            this.updateSubList();
+/*            for(Integer i=0; i<OFFSETAMOUNT && i<species.size(); i++){
                 speciesSubList.add(species.get(i));
-            }
-            //Determine if there is only one page worth of results to be displayed
-            if(species.size()>OFFSETAMOUNT){
-                notLastPage = true;
-                notFirstPage = false;
-            }
-            
+            } */           
         }
     }
     
     //Update the list of elements to be displayed with the next page of elements or the previous page of elements
-    private void fillSubList(){
+    private void updateSubList(){
         speciesSubList = new List<Species__c>();
         for(Integer i=OffSetCount; i<OffSetCount+OFFSETAMOUNT && i<species.size(); i++){
             speciesSubList.add(species.get(i));
@@ -62,7 +58,7 @@ public with sharing class FindSpecies {
             notFirstPage = true;
             notLastPage = true;
             OffSetCount += OFFSETAMOUNT;
-            this.fillSubList();
+            this.updateSubList();
             //Check to see if this page is the last page
             if(OffSetCount + OFFSETAMOUNT > species.size()){
             	notLastPage = false;
@@ -79,7 +75,7 @@ public with sharing class FindSpecies {
             notLastPage = true;
             notFirstPage = true;
             OffSetCount -= OFFSETAMOUNT;
-            this.fillSubList();
+            this.updateSubList();
             //Check to see if this is the first page of content
             if(OffSetCount - OFFSETAMOUNT < 0){
                 notFirstPage = false;

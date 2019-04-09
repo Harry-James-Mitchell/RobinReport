@@ -34,7 +34,7 @@
             </apex:pageBlockSection>
 
             <apex:pageBlockSection title="Results" rendered="{!sightings != null}" collapsible="false">
-            	<apex:pageBlockTable value="{!sightings}" var="sight" >
+            	<apex:pageBlockTable value="{!sightingsSubList}" var="sight" >
                 	<apex:column headerValue="Name" >
                                 <a href="#" id="{!sight.Id}" onmouseover="LookupHoverDetail.getHover('{!sight.Id}', '/{!sight.Id}/m?retURL=/{!sight.Id}&isAjaxRequest=1').show();"
   								 onmouseout="LookupHoverDetail.getHover('{!sight.Id}').hide();">
@@ -43,10 +43,12 @@
                         </apex:column>
                     <apex:column value="{!sight.Species__c}"/>
                     <apex:column value="{!sight.SightingDate__c}"/>
-                </apex:pageBlockTable>
-                
+                </apex:pageBlockTable>                
             </apex:pageBlockSection>
+            <apex:pageBlockButtons Location="bottom">
+                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}"/>
+                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}"/>
+            </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>
-    
 </apex:page>

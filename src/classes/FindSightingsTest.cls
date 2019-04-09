@@ -12,7 +12,7 @@ public class FindSightingsTest {
                 Species__c tmp = new Species__c();
                 
                 tmp.name=name;
-                tmp.SpecieDescription__c = description;
+                tmp.SpeciesDescription__c = description;
                 
                 species.add(tmp);
             }
