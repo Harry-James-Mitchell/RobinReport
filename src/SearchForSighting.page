@@ -1,0 +1,52 @@
+<apex:page standardController="Sighting__c"
+           recordSetVar="sightings"
+           extensions="FindSightings"
+           docType="HTML-5.0"
+           lightningStylesheets="true">
+    <apex:pageMessages />
+    
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageBlockSection title="Search for sightings:" collapsible="false" columns="3" >
+                <apex:pageBlockSectionItem >
+                    <apex:input value="{!input}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    Search by: 
+                    <apex:selectList value="{!searchBy}" size="1" >
+                        <apex:selectOption itemValue="{!'Species'}" itemLabel="Species Name"/>
+                        <apex:selectOption itemValue="{!'Sighting'}" itemLabel="Sighting Name"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!search}" value="Find"/> 
+                	
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSection >
+                	&#8203;
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSectionItem >
+                	<apex:commandButton action="{!nearbyRedirect}" value="Find all nearby sightings" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Results" rendered="{!sightings != null}" collapsible="false">
+            	<apex:pageBlockTable value="{!sightings}" var="sight" >
+                	<apex:column headerValue="Name" >
+                                <a href="#" id="{!sight.Id}" onmouseover="LookupHoverDetail.getHover('{!sight.Id}', '/{!sight.Id}/m?retURL=/{!sight.Id}&isAjaxRequest=1').show();"
+  								 onmouseout="LookupHoverDetail.getHover('{!sight.Id}').hide();">
+                            	{!sight.Name}	        
+                        </a>
+                        </apex:column>
+                    <apex:column value="{!sight.Species__c}"/>
+                    <apex:column value="{!sight.SightingDate__c}"/>
+                </apex:pageBlockTable>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>
