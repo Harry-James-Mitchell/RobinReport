@@ -17,7 +17,8 @@ public class FindSighting {
         // Store speciesName so it can be used in the query 
         String searchSightingName = '%' + sightingName + '%'; 
         // SOQL query store in sighting 
-        sighting = [SELECT Id, Name, SightingDate__c, SightingTime__c, Species__c 
+        sighting = [SELECT Id, Name, SightingDate__c, SightingTime__c, 
+                    		Specie__c 
                    FROM Sighting__c
                    WHERE Name 
                    LIKE :searchSightingName];

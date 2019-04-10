@@ -1,7 +1,7 @@
 <apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
-    <apex:form >
+	<apex:form >
         <apex:pageBlock title="Enter a date and time! Step2">
-            <apex:pageBlockButtons location="bottom" > 
+        	<apex:pageBlockButtons location="bottom" > 
                 <apex:commandButton action="{!pageTwoPrevious}" value="Previous" />
                 <apex:commandButton action="{!pageTwoNext}" value="Next" />
             </apex:pageBlockButtons>

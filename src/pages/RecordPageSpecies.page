@@ -1,12 +1,17 @@
-<apex:page standardController="Species__c" recordSetVar="species" lightningStyleSheets="true" docType="html-5.0">
+<apex:page standardController="Species__c" extensions="RecordPageSpeciesExtension" recordSetVar="species" lightningStyleSheets="true" docType="html-5.0">
+    <apex:stylesheet value="{!$Resource.RecordPageStyling}" />
     <apex:form >
-       <apex:pageBlock title="List of Species: " > 
-            <apex:pageBlockTable value="{!species}" var="spec" style="width:100%" >
-            	<apex:column value="{!spec.Name}" style="width:10%"/>
-                <apex:column value="{!spec.ScientificName__c}" style="width:10%"/>
-                <apex:column value="{!spec.SpeciesDescription__c}" style="width:45%"/>
-                <apex:column value="{!spec.Picture__c}" style="width:35%"/>
-             </apex:pageBlockTable>                
-         </apex:pageBlock>
-    </apex:form>    
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton action="{!setController.previous}" value="Previous" disabled="{!NOT(setController.hasPrevious)}"/>								
+            <apex:commandButton action="{!setController.next}" value="Next" disabled="{!NOT(setController.hasNext)}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable rules="cols" value="{!species}" var="spec" align="center" rowClasses="even,odd" style="width:100%" headerClass="headerStyle" >
+            <apex:column value="{!spec.Name}" styleClass="tableText" style="width:15%"/>
+            <apex:column value="{!spec.ScientificName__c}" styleClass="tableText" style="width:15%"/>
+            <apex:column value="{!spec.SpeciesDescription__c}" styleClass="tableText" style="width:40%" />
+            <apex:column value="{!spec.Picture__c}" style="width:30%" />
+        </apex:pageBlockTable>                
+    </apex:pageBlock> 
+    </apex:form>      
 </apex:page>

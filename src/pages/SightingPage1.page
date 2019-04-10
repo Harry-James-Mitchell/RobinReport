@@ -1,7 +1,7 @@
 <apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
-    <apex:form >
-        <apex:pageBlock title="Create a new sighting! Step1">
-            <apex:pageBlockButtons location="bottom" > 
+	<apex:form >
+    	<apex:pageBlock title="Create a new sighting! Step1">
+        	<apex:pageBlockButtons location="bottom" > 
                 <apex:commandButton action="{!pageOneNext}" value="Next" />
             </apex:pageBlockButtons>
             <apex:pageBlockSection >

@@ -1,19 +1,26 @@
-<apex:page standardController="Sighting__c" recordSetVar="sighting" lightningStyleSheets="true" docType="html-5.0">
+<apex:page standardController="Sighting__c" extensions="RecordPageSightingExtension" recordSetVar="sighting" lightningStyleSheets="true" docType="html-5.0">
+    <apex:stylesheet value="{!$Resource.RecordPageStyling}" />
     <apex:form >
-            <apex:pageBlock title="Sightings near you: " >
-                <apex:pageBlockSection title="Sightings: " collapsible="false" columns="2" >
-                <apex:pageBlockSectionItem dataStyle="">
-                    <apex:iframe src="BirdLocation" scrolling="true" id="theIframe" />
-                </apex:pageBlockSectionItem>
-                <apex:pageBlockSectionItem dataStyle="">
-                    <apex:pageBlockTable value="{!sighting}" var="sight" >
-                        <apex:column value="{!sight.Name}"/>
-                        <apex:column value="{!sight.SightingDate__c}"/>
-                        <apex:column value="{!sight.SightingTime__c}"/>
-                        <apex:column value="{!sight.Species__c}"/>
-                    </apex:pageBlockTable>
-                </apex:pageBlockSectionItem>
-                </apex:pageBlockSection>
-            </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton action="{!setController.previous}" value="Previous" disabled="{!NOT(setController.hasPrevious)}"/>								
+            <apex:commandButton action="{!setController.next}" value="Next" disabled="{!NOT(setController.hasNext)}"/>
+        </apex:pageBlockButtons>
+        <apex:outputPanel layout="block"  style="sightingHeader">                                             
+        <apex:pageBlockSection title="Sightings: " collapsible="false" columns="2"  >
+            <apex:pageBlockSectionItem dataStyle="">
+                <apex:iframe src="BirdLocation" scrolling="true" id="theIframe" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem > 
+                <apex:pageBlockTable value="{!sighting}" var="sight" rowClasses="even,odd" headerClass="headerStyle">
+                    <apex:column value="{!sight.Name}" styleClass="tableText"/>
+                    <apex:column value="{!sight.SightingDate__c}" styleClass="tableText"/>
+                    <apex:column value="{!sight.SightingTime__c}" styleClass="tableText"/>
+                    <apex:column value="{!sight.Specie__c}" styleClass="tableText"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+	</apex:outputPanel>
+    </apex:pageBlock>
     </apex:form>
 </apex:page>

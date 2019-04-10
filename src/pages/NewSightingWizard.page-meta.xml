@@ -3,7 +3,7 @@
     <apiVersion>45.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>SightingPage1</label>
+    <label>NewSightingWizard</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>29</minorNumber>
