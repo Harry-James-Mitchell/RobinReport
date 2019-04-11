@@ -8,7 +8,7 @@
             </apex:pageBlockButtons>
             <apex:pageBlockSection >
                 <apex:outputText value="Date" /> 
-                <apex:input type="date" value="{!sightingDate}" />
+                <apex:input type="date" value="{!sightingDate}" required="true" />
                 <apex:outputText value="Time" /> 
                 <apex:input type="time" value="{!sightingTime}" />
             </apex:pageBlockSection>

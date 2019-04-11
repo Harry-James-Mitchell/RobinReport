@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.RecordPageStyling}" />
     <apex:form >
     <apex:pageBlock >
-        <apex:pageBlockButtons location="bottom">
+        <apex:pageBlockButtons >
             <apex:commandButton action="{!setController.previous}" value="Previous" disabled="{!NOT(setController.hasPrevious)}"/>								
             <apex:commandButton action="{!setController.next}" value="Next" disabled="{!NOT(setController.hasNext)}"/>
         </apex:pageBlockButtons>

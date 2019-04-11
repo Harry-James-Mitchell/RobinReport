@@ -32,7 +32,7 @@ public class ControllerTestUtility {
                 
                 tmp.name=name;
                 tmp.SpeciesDescription__c = description;
-                
+                tmp.ScientificName__c = name + 'ous';
                 species.add(tmp);
             }
         	

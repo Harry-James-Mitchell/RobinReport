@@ -13,8 +13,8 @@ public class RecordPageSightingExtension {
         setController = new ApexPages.StandardSetController([SELECT Name,
                                                              SightingDate__c,
                                                              SightingTime__c,
-                                                             Specie__c
-                                                             FROM Sighting__c]);
-        setController.setPageSize(5);
+                                                             Species__c
+                                                             FROM Sighting__c ORDER BY SightingDate__c desc]);
+        setController.setPageSize(15);
     }
 }

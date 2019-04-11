@@ -8,9 +8,9 @@
             </apex:pageBlockButtons>
             <apex:pageBlockSection >
                 <apex:outputText value="latitude" /> 
-                <apex:input type="number" html-step="any" value="{!latitude}"/>
+                <apex:input type="number" html-step="any" value="{!latitude}" required="true" />
                 <apex:outputText value="longitude" /> 
-				<apex:input type="number" html-step="any" value="{!longitude}"/>
+				<apex:input type="number" html-step="any" value="{!longitude}" required="true"/>
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>

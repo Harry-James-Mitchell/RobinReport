@@ -1,4 +1,4 @@
-public class SightingWizardController {
+public with sharing class  SightingWizardController {
     public string Name{get;set;}
     public Date sightingDate{get;set;}
     public Time sightingTime{get;set;}
@@ -32,6 +32,10 @@ public class SightingWizardController {
     public PageReference pageTwoNext(){
         System.debug('newSighting: ' + sightingDate);
         System.debug('newSighting: ' + sightingTime);
+        if(sightingDate > Date.today()){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.info, 'You may not select a future date'));
+            return null;
+        }
         return Page.SightingPage3; 
     }
 
@@ -42,6 +46,10 @@ public class SightingWizardController {
     public PageReference pageThreeNext(){
         System.debug('long: ' + longitude);
         System.debug('lat: ' + latitude);
+        if(longitude > 90 || longitude < -90 || latitude > 90 || latitude < -90){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.info, 'You must input a valid GeoLocation'));
+            return null;
+        }
         return Page.SightingPage4; 
     }
     

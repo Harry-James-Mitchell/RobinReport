@@ -1,15 +1,13 @@
 .odd{
     background-color : #C6DEFF ;
     color:#333333 !important; 
-    text-align:center;
-    pointer-events: none; 
+    text-align:center; 
 }
 
 .even{
     background-color : #F0F8FF;
 	color : black !important;
-    text-align:center;
-    pointer-events: none; 
+    text-align:center; 
 } 
 
 .headerStyle{
@@ -23,7 +21,9 @@
 .tableText {
     font-size: 14pt !important;
 }
-
+.sightName {
+    font-size: 20pt !important;
+}
 .sightingHeader{
     background-color: #6698FF !important;
     color: #F0F8FF !important;

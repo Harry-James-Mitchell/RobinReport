@@ -6,7 +6,7 @@
             </apex:pageBlockButtons>
             <apex:pageBlockSection >
                 <apex:outputText value="Name"/>
-                <apex:inputText value="{!Name}" />
+                <apex:inputText value="{!Name}" required="true" />
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>

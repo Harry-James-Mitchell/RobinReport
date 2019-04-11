@@ -6,7 +6,7 @@
                 <apex:commandButton action="{!saveSighting}" value="Save" />
             </apex:pageBlockButtons>
             <apex:pageBlockSection >
-                <apex:selectList value="{!species}" size="1" multiselect="false" >
+                <apex:selectList value="{!species}" size="1" multiselect="false" required="true" >
                     <apex:selectOptions value="{!SelectSpeciesItems}"/>
                 </apex:selectList>
             </apex:pageBlockSection>
