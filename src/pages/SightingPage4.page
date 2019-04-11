@@ -1,7 +1,7 @@
 <apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0" >
-	<apex:form >
+    <apex:form >
         <apex:pageBlock title="Select a species from the provided List! Final Step">
-        	<apex:pageBlockButtons location="bottom" > 
+            <apex:pageBlockButtons location="bottom" > 
                 <apex:commandButton action="{!pageFourPrevious}" value="Previous" />
                 <apex:commandButton action="{!saveSighting}" value="Save" />
             </apex:pageBlockButtons>

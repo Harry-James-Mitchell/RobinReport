@@ -1,5 +1,6 @@
 <apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
-	<apex:form >
+	<apex:pageMessages />
+    <apex:form >
         <apex:pageBlock title="Enter a geolocation! Step3">
         	<apex:pageBlockButtons location="bottom"> 
                 <apex:commandButton action="{!pageThreePrevious}" value="Previous" />

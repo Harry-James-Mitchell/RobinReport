@@ -1,4 +1,5 @@
 <apex:page controller="SightingWizardController" lightningStyleSheets="true" docType="html-5.0">
+    <apex:pageMessages />
 	<apex:form >
         <apex:pageBlock title="Enter a date and time! Step2">
         	<apex:pageBlockButtons location="bottom" > 

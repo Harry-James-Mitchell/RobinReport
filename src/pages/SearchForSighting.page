@@ -6,7 +6,7 @@
     <apex:pageMessages />
     
     <apex:form >
-    	<apex:pageBlock >
+        <apex:pageBlock id="PBlock">
             <apex:pageBlockSection title="Search for sightings:" collapsible="false" columns="3" >
                 <apex:pageBlockSectionItem >
                     <apex:input value="{!input}"/>
@@ -22,23 +22,23 @@
                 
                 <apex:pageBlockSectionItem >
                     <apex:commandButton action="{!search}" value="Find"/> 
-                	
+                    
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSection >
-                	&#8203;
+                    &#8203;
                 </apex:pageBlockSection>
                 
                 <apex:pageBlockSectionItem >
-                	<apex:commandButton action="{!nearbyRedirect}" value="Find all nearby sightings" />
+                    <apex:commandButton action="{!nearbyRedirect}" value="Find all nearby sightings" />
                 </apex:pageBlockSectionItem>
             </apex:pageBlockSection>
 
             <apex:pageBlockSection title="Results" rendered="{!sightings != null}" collapsible="false">
-            	<apex:pageBlockTable value="{!sightingsSubList}" var="sight" >
-                	<apex:column headerValue="Name" >
+                <apex:pageBlockTable value="{!sightingsSubList}" var="sight" >
+                    <apex:column headerValue="Name" >
                                 <a href="#" id="{!sight.Id}" onmouseover="LookupHoverDetail.getHover('{!sight.Id}', '/{!sight.Id}/m?retURL=/{!sight.Id}&isAjaxRequest=1').show();"
-  								 onmouseout="LookupHoverDetail.getHover('{!sight.Id}').hide();">
-                            	{!sight.Name}	        
+                                 onmouseout="LookupHoverDetail.getHover('{!sight.Id}').hide();">
+                                {!sight.Name}           
                         </a>
                         </apex:column>
                     <apex:column value="{!sight.Species__c}"/>
@@ -46,8 +46,8 @@
                 </apex:pageBlockTable>                
             </apex:pageBlockSection>
             <apex:pageBlockButtons Location="bottom">
-                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}"/>
-                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}"/>
+                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}" reRender="PBlock"/>
+                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}" reRender="PBlock"/>
             </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>

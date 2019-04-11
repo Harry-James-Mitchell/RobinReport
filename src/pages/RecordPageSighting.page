@@ -16,7 +16,7 @@
                     <apex:column value="{!sight.Name}" styleClass="tableText"/>
                     <apex:column value="{!sight.SightingDate__c}" styleClass="tableText"/>
                     <apex:column value="{!sight.SightingTime__c}" styleClass="tableText"/>
-                    <apex:column value="{!sight.Specie__c}" styleClass="tableText"/>
+                    <apex:column value="{!sight.Species__c}" styleClass="tableText"/>
                 </apex:pageBlockTable>
             </apex:pageBlockSectionItem>
         </apex:pageBlockSection>

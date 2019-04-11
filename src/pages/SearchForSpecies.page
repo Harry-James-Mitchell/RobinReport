@@ -2,13 +2,13 @@
     <apex:pageMessages />
     <apex:slds />
     <apex:form >
-        <apex:pageBlock >
+        <apex:pageBlock id="PBlock">
             <apex:pageBlockSection title="Please enter sepecies name" collapsible="false">
                 <apex:input type="text" value="{!speciesName}" label="Species Name: "/>
                 <apex:commandButton action="{!findSpecies}" value="Find Species"/>
             </apex:pageBlockSection>
            <!-- <apex:pageBlockSection title="Species" id="resultsSection" rendered="{!speciesFound}" > -->
-                <apex:pageBlockTable value="{!speciesSubList}" var="speciesList" style="width:100%">
+                <apex:pageBlockTable value="{!speciesSubList}" var="speciesList" style="width:100%" id="table">
                     <apex:column value="{!speciesList.Name}" width="10%" />
                     <apex:column value="{!speciesList.ScientificName__c}" width="10%"/>
                     <apex:column value="{!speciesList.SpeciesDescription__c}" width="40%"/>
@@ -22,9 +22,9 @@
                     </apex:column>-->
                 </apex:pageBlockTable>
        <!--     </apex:pageBlockSection> -->
-            <apex:pageBlockButtons Location="bottom">
-                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}"/>
-                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}"/>
+            <apex:pageBlockButtons Location="bottom" id="buttons">
+                <apex:commandButton action="{!previous}" value="Previous Page" rendered="{!notFirstPage}" reRender="PBlock"/>
+                <apex:commandButton action="{!next}" value="Next Page" rendered="{!notLastPage}" reRender="PBlock"/>
             </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>
